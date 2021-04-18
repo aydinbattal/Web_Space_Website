@@ -10,4 +10,9 @@ public class HomeController {
     public String index(){
         return "Index";
     }
+
+    @GetMapping(value={"/error"})
+    public String error(){
+        return "Error";
+    }
 }
