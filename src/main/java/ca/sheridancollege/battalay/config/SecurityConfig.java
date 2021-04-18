@@ -12,8 +12,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
-import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
 
@@ -53,12 +51,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         security.authorizeRequests()
                 .antMatchers("/users/**").hasRole("STUDENT")
+                .antMatchers("/users/**").hasRole("TEACHER")
                 .anyRequest()
                 .authenticated();
 
         security.formLogin()
                 .loginPage("/Login")
-                .defaultSuccessUrl("/Index")
+                .defaultSuccessUrl("/Home")
                 .failureUrl("/Login?error")
                 .permitAll();
 
@@ -67,17 +66,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/Index")
                 .deleteCookies("my-remember-me-cookie")
                 .permitAll();
-
-        security.rememberMe()
-                .rememberMeCookieName("my-remember-me-cookie")
-                .tokenRepository(persistentTokenRepository())
-                .tokenValiditySeconds(24 * 60 * 60);
-    }
-
-    private PersistentTokenRepository persistentTokenRepository(){
-        JdbcTokenRepositoryImpl tokenRepositoryImpl = new JdbcTokenRepositoryImpl();
-        tokenRepositoryImpl.setDataSource(dataSource);
-        return tokenRepositoryImpl;
     }
 
     @Bean

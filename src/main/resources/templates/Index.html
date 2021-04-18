@@ -27,20 +27,6 @@
     </div>
 </header>
 <main role="main" class="container">
-<!--    <ul sec:authorize="isAuthenticated()" class="nav flex-column">-->
-<!--        <li class="nav-item">-->
-<!--            <a th:href="@{/students/Index}" href="students/Index.html" class="nav-link">Student Data</a>-->
-<!--        </li>-->
-<!--        <li sec:authorize="hasRole('ADMIN')" class="nav-item">-->
-<!--            <a th:href="@{/users/Index}" href="users/Index.html" class="nav-link">User Data</a>-->
-<!--        </li>-->
-<!--        <li class="nav-item">-->
-<!--            <a th:href="@{/password/ChangePassword}" href="passwords/ChangePassword.html" class="nav-link">Change Password</a>-->
-<!--        </li>-->
-<!--        <li class="nav-item">-->
-<!--            <a th:href="@{/Logout}" href="Index.html" class="nav-link">Logout</a>-->
-<!--        </li>-->
-<!--    </ul>-->
     <ul sec:authorize="isAnonymous()" class="nav flex-column">
         <li class="nav-item">
             <a th:href="@{/Login}" href="Login.html" class="nav-link">Login</a>
