@@ -13,18 +13,11 @@
     <title>Index</title>
 </head>
 <body>
-<header>
-    <div>
-        <nav class="navbar navbar-expand-sm navbar-dark navbar-custom">
-            <div class="container">
-                <a href="Index.html" class="navbar-brand">Student Data</a>
-            </div>
-        </nav>
-    </div>
-    <div class="container">
-        <h1 class="my-4">Index</h1>
-    </div>
+<header th:replace="Header :: HeaderBar">
 </header>
+<div class="container">
+    <h1 class="my-4">Welcome to Web Space!</h1>
+</div>
 <main role="main" class="container">
     <ul sec:authorize="isAnonymous()" class="nav flex-column">
         <li class="nav-item">
@@ -33,4 +26,6 @@
     </ul>
 </main>
 </body>
+<footer th:replace="Footer :: FooterBar">
+</footer>
 </html>

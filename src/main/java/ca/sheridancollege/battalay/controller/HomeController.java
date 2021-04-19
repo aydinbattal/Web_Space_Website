@@ -11,8 +11,8 @@ public class HomeController {
         return "Index";
     }
 
-    @GetMapping(value={"/error"})
-    public String error(){
-        return "Error";
-    }
+//    @GetMapping(value={"/error"})
+//    public String error(){
+//        return "Error";
+//    }
 }

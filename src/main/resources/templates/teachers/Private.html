@@ -13,18 +13,11 @@
     <title>Teachers Space</title>
 </head>
 <body>
-<header>
-    <div>
-        <nav class="navbar navbar-expand-sm navbar-dark navbar-custom">
-            <div class="container">
-                <a href="Index.html" class="navbar-brand">Student Data</a>
-            </div>
-        </nav>
-    </div>
-    <div class="container">
-        <h1 class="my-4">Teachers Space</h1>
-    </div>
+<header th:replace="Header :: HeaderBar">
 </header>
+<div class="container">
+    <h1 class="my-4">Teachers Space</h1>
+</div>
 <main role="main" class="container">
     <ul class="nav flex-column">
         <li class="nav-item">
@@ -33,4 +26,6 @@
     </ul>
 </main>
 </body>
+<footer th:replace="Footer :: FooterBar">
+</footer>
 </html>

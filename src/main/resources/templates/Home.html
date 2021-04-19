@@ -13,18 +13,11 @@
     <title>Home</title>
 </head>
 <body>
-<header>
-    <div>
-        <nav class="navbar navbar-expand-sm navbar-dark navbar-custom">
-            <div class="container">
-                <a href="Index.html" class="navbar-brand">Student Data</a>
-            </div>
-        </nav>
-    </div>
-    <div class="container">
-        <h1 class="my-4">Home</h1>
-    </div>
+<header th:replace="Header :: HeaderBar">
 </header>
+<div class="container">
+    <h1 class="my-4">Home</h1>
+</div>
 <main role="main" class="container">
         <ul sec:authorize="isAuthenticated()" class="nav flex-column">
             <li sec:authorize="hasRole('STUDENT')" class="nav-item">
@@ -39,9 +32,6 @@
         </ul>
 </main>
 </body>
-<footer class="bg-light text-center text-lg-start">
-    <div class="text-center p-3 bg-dark text-white" >
-         2021 © Aydin Battal
-    </div>
+<footer th:replace="Footer :: FooterBar">
 </footer>
 </html>
